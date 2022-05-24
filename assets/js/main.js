@@ -27,8 +27,9 @@ class TicTacToe {
   }
 
   handleMove(e) {
-    this.moves++;
+    console.log(this.moves);
     if(e.target.innerText === '') {
+      this.moves++;
       this.switchCurrentPlayer();
       this.displayMove(e);
       this.updateGameBoard(e.target.getAttribute('data-index'));
@@ -40,22 +41,65 @@ class TicTacToe {
   }
 
   displayMove(e) {
-    console.log(e.target);
     console.log('Current player', this.currentPlayer)
-    console.log(e.target.innerText);
     e.target.innerText = this.currentPlayer;
     
   }
 
   updateGameBoard(index) {
     this.currentGameBoard[index] = this.currentPlayer;
+    console.log(this.currentGameBoard);
     this.checkForWinner();
   }
 
   checkForWinner() {
-    if(this.currentGameBoard[0] === this.currentGameBoard[1] && this.currentGameBoard[1] === this.currentGameBoard[2]) {
-      this.endGame(this.currentPlayer);
+    // Check first row
+    let player = this.currentPlayer;
+    if(this.checkRows(player)) {
+      this.endGame(player);
+    } else if(this.checkColumns(player)) {
+      this.endGame(player);
+    } else if(this.checkDiagonals(player)) {
+      this.endGame(player);
     }
+    
+  }
+
+  checkRows(player) {
+    if(this.currentGameBoard[0] === player && this.currentGameBoard[1] === player && this.currentGameBoard[2] === player) {
+      console.log('reahced');
+      return true;
+    } 
+    else if(this.currentGameBoard[3] === player && this.currentGameBoard[4] === player && this.currentGameBoard[5] === player) {
+      return true;
+
+    } else if(this.currentGameBoard[6] === player && this.currentGameBoard[7] === player && this.currentGameBoard[8] === player) {
+      return true;
+    } 
+    return false;
+  }
+
+  checkColumns(player) {
+    if(this.currentGameBoard[0] === player && this.currentGameBoard[3] === player && this.currentGameBoard[6] === player) {
+      return true;
+    } 
+    else if(this.currentGameBoard[1] === player && this.currentGameBoard[4] === player && this.currentGameBoard[7] === player) {
+      return true;
+
+    } else if(this.currentGameBoard[2] === player && this.currentGameBoard[5] === player && this.currentGameBoard[8] === player) {
+      return true;
+    } 
+    return false;
+  }
+
+  checkDiagonals(player) {
+    if(this.currentGameBoard[0] === player && this.currentGameBoard[4] === player && this.currentGameBoard[8] === player) {
+      return true;
+    } 
+    else if(this.currentGameBoard[2] === player && this.currentGameBoard[4] === player && this.currentGameBoard[6] === player) {
+      return true;
+    } 
+    return false;
   }
 
   endGame(winner) {
