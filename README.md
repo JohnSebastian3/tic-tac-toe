@@ -1,31 +1,20 @@
 # Tic-Tac-Toe
 Short sentence here
 
-<!-- **Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** https://johnsebastian3.github.io/tic-tac-toe/
 
-![alt tag](http://placecorgi.com/1200/650)
+<!-- ![alt tag](http://placecorgi.com/1200/650) -->
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Framework of choice
+**Tech used:** HTML, CSS, JavaScript
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+A big emphasis was put on OOP in order to get this project to work. I tried to tuck all the functionality of the game into it's own class to avoid cluttering the global namespace. The main game logic was made by using a 'game board' property on the TicTacToe object. This game board is just an array of length 9 that is initally only filled with null. As the game progresses, the player (X or O) marks the certain cell they want to fill, and the corresponding index gets filled in the array. After every move, a test function runs to see if a player has won. If no player has won by the time that the board fills, then a tie occured.
 
 ## Optimizations
-*(optional)*
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
-
+Optimizations for this project include refactoring code and adding AI functionality.
 ## Lessons Learned:
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *fuck yeah I did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
-
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
-
-**Palettable:** https://github.com/alecortega/palettable
-
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
-
-**Patch Panel:** https://github.com/alecortega/patch-panel -->
+I learned a lot about classes, constructors, and factory functions during this project.
 
