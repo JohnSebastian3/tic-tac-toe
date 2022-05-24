@@ -1,6 +1,8 @@
 // Get our game board and each individual cell
 let gameBoard = document.querySelector('.game-board');
 let cells = document.querySelectorAll('.cell');
+let modal = document.querySelector('.modal');
+let theWinner = document.querySelector('#winner');
 
 
 class TicTacToe {
@@ -61,6 +63,8 @@ class TicTacToe {
       this.endGame(player);
     } else if(this.checkDiagonals(player)) {
       this.endGame(player);
+    } else if(this.moves === 9) {
+      this.endGame('none');
     }
     
   }
@@ -103,8 +107,15 @@ class TicTacToe {
   }
 
   endGame(winner) {
-    console.log(`Congratulations ${winner}! You have won!`);
-    this.disableCells();
+    if(winner === 'none') {
+      showModal();
+      displayTie();
+      this.disableCells();
+    } else {
+      showModal();
+      displayWinner(winner);
+      this.disableCells();
+    }
   }
 
   disableCells() {
@@ -121,8 +132,8 @@ class TicTacToe {
 
 function firstPlayer() {
   let first = 'O';
-  if(Math.random(2) > 1) {
-    first = X;
+  if(Math.random() * 2 > 1) {
+    first = 'X';
   }
   secondPlayer(first);
   return first;
@@ -136,6 +147,18 @@ function secondPlayer(firstPlayer) {
     second = 'O';
   }
   return second;
+}
+
+function showModal() {
+  modal.classList.remove('hidden');
+}
+
+function displayWinner(winner) {
+  theWinner.innerText = `Player ${winner} wins!`;
+}
+
+function displayTie() {
+  theWinner.innerText = 'It\'s a tie!';
 }
 
 const game = new TicTacToe(firstPlayer(), secondPlayer());
