@@ -1,5 +1,5 @@
 # Tic-Tac-Toe
-Short sentence here
+This is a tic-tac-toe game simulator! The rules are simple. Be the first to get 3 in a row either horizontally, vertically, or diagonally, and you win! Current functionality does not inlclude ability to choose if player is X or O. AI functionality planned.
 
 **Link to project:** https://johnsebastian3.github.io/tic-tac-toe/
 
